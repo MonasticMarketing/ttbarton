@@ -12,6 +12,13 @@
 <meta property="og:description" content="Founder of Monastic Marketing. Paid media, technical search, creative and CRM automation across 340+ clients.">
 <meta property="og:url" content="https://ttbarton.com/experience/">
 <meta property="og:site_name" content="Tyler Barton">
+<meta property="og:image" content="https://ttbarton.com/assets/social-profile.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Tyler Barton, founder of Monastic Marketing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ttbarton.com/assets/social-profile.jpg">
 <meta name="theme-color" content="#090909">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +36,7 @@
     <span>Menu</span>
   </button>
   <a class="wordmark" href="/" aria-label="TB: Tyler Barton home">TB<span>Tyler Barton</span></a>
-  <a class="header-contact" href="/contact/">Let&rsquo;s connect <span aria-hidden="true">&#8599;</span></a>
+  <button class="header-contact" data-open="booking">Let&rsquo;s Chat <span aria-hidden="true">&#8599;</span></button>
 </header>
 
 <dialog id="navigation" class="nav-dialog" aria-labelledby="nav-title">
@@ -63,7 +70,7 @@
       <span>Built through doing</span>
     </div>
     <h1>Experience that<br>informs the work.</h1>
-    <p class="lead">Agency leadership, paid media, technical search, and the automation that connects them. A record of building the infrastructure behind a business, not just the campaigns on top of it.</p>
+    <p class="lead">Agency leadership, paid media, technical search, and the automation that connects them &mdash; alongside ownership and operations experience carried through a seven-figure exit. A record of building the infrastructure behind a business, not just the campaigns on top of it.</p>
     <!-- TODO(assets): add a "Download profile" link here once /downloads/tyler-barton-profile.pdf exists -->
   </section>
 
@@ -85,13 +92,37 @@
         </summary>
         <div class="timeline-detail">
           <p>Founded Monastic Marketing in 2018 on the premise that marketing should be an investment that compounds, not an expense that drains. The agency began as a response to vanity metrics, opaque reporting, and firms more interested in protecting a retainer than moving a client&rsquo;s revenue.</p>
-          <p>It operates today as a full-stack growth partner &mdash; media buying, technical SEO, and CRM automation under one roof &mdash; with hubs in Utah and Texas serving clients across North America and globally. 340+ clients scaled, $24M+ in revenue generated, 1,200+ campaigns launched, and a 5/5 client satisfaction rating.</p>
+          <p>It operates today as a full-stack growth partner &mdash; media buying, technical SEO, and CRM automation under one roof &mdash; based in Dallas&ndash;Fort Worth, Texas, serving clients across North America and globally. 340+ clients scaled, $24M+ in revenue generated, 1,200+ campaigns launched, and a team of 85+ employees and contractors.</p>
           <ul class="tag-list">
             <li>340+ Clients Scaled</li>
             <li>$24M+ Revenue Generated</li>
             <li>1,200+ Campaigns Launched</li>
-            <li>Full-Stack Growth Partner</li>
-            <li>Utah &amp; Texas Hubs</li>
+            <li>85+ Employees &amp; Contractors</li>
+            <li>2,000+ Trained</li>
+            <li>Dallas&ndash;Fort Worth, Texas</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="timeline-item" id="soulegria">
+        <summary>
+          <span class="timeline-badge">7-Figure Exit</span>
+          <div>
+            <h3>Soulegria</h3>
+            <p>Owner / Chief Operating Officer</p>
+          </div>
+          <span class="expand" aria-hidden="true">+</span>
+        </summary>
+        <div class="timeline-detail">
+          <p>Owner and COO of Soulegria, a therapy-based treatment and coaching organization for young adults and their families. Its programs span outpatient and intensive outpatient therapy, independent-living and life-skills training, adventure therapy, employment training, and family-based services.</p>
+          <p>Held the operating seat &mdash; team structure, service delivery, staffing, and the day-to-day execution a care business runs on &mdash; and carried an ownership stake through to a seven-figure exit. Behavioral health is an operationally demanding sector with little tolerance for improvisation, and it shaped how I think about process, accountability, and which systems actually hold up under pressure.</p>
+          <ul class="tag-list">
+            <li>Seven-Figure Exit</li>
+            <li>Owner &amp; COO</li>
+            <li>Behavioral Health</li>
+            <li>Operations Leadership</li>
+            <li>Service Delivery</li>
+            <li>Team Structure</li>
           </ul>
         </div>
       </details>
@@ -231,7 +262,7 @@
   <section class="contact-section section">
     <div class="section-kicker">
       <span>Strategic conversations</span>
-      <span>Let&rsquo;s connect</span>
+      <span>Let&rsquo;s Chat</span>
     </div>
     <div class="contact-layout">
       <h2>Let&rsquo;s build<br>what&rsquo;s next.</h2>
@@ -255,6 +286,16 @@
   <a href="#top">Back to top &uarr;</a>
   <small>&copy; 2026 Tyler Barton</small>
 </footer>
+
+<dialog id="booking" class="booking-dialog" aria-label="Book a call with Tyler Barton">
+  <div class="dialog-top">
+    <span class="eyebrow">Book a time</span>
+    <button class="close" data-close aria-label="Close booking">&times;</button>
+  </div>
+  <!-- src is set on first open so the third-party widget never loads on a plain page view -->
+  <iframe data-src="https://link.bemonastic.com/widget/booking/9uI12Z1BLdLVmq4bh6Eg" title="Booking calendar for Tyler Barton" loading="lazy"></iframe>
+  <p class="booking-note">Scheduling is handled by LeadConnector. Opening this connects to the booking service.</p>
+</dialog>
 
 <script src="/assets/site.js" defer></script>
 </body>

@@ -172,6 +172,19 @@ main { animation: page-enter 0.4s var(--ease); }
 .header-contact { display: flex; align-items: center; gap: 18px; font-size: 0.7rem; }
 .header-contact span { color: var(--gold); }
 
+/* --- Booking dialog ------------------------------------------------------- */
+
+.booking-dialog { width: 980px; padding: 24px 28px 20px; }
+.booking-dialog iframe {
+  display: block;
+  width: 100%;
+  height: min(72dvh, 820px);
+  margin-top: 18px;
+  border: 0;
+  background: #fff;
+}
+.booking-note { margin: 14px 0 0; color: var(--muted); font-size: 0.62rem; line-height: 1.6; }
+
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -249,28 +262,12 @@ main { animation: page-enter 0.4s var(--ease); }
   width: 100%;
   height: 590px;
   object-fit: cover;
-  object-position: 50% 37%;
+  object-position: 52% 22%;
   filter: saturate(0.65);
   transition: filter 0.5s, transform 0.8s;
 }
 .portrait-frame:hover > img { filter: saturate(1); transform: scale(1.02); }
 
-/* Monogram stand-in used until a portrait is supplied */
-.portrait-frame.is-monogram { display: grid; place-items: center; height: 590px; background:
-  radial-gradient(at 70% 15%, #c5a34e14, #0000 60%), #15150f; }
-.monogram {
-  display: grid;
-  place-items: center;
-  width: min(62%, 290px);
-  aspect-ratio: 1;
-  border: 1px solid #c5a34e3d;
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 11vw, 8.5rem);
-  letter-spacing: -0.04em;
-  color: var(--gold);
-  line-height: 1;
-}
 
 .portrait-caption {
   position: absolute;
@@ -748,19 +745,7 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
 
 .portrait-dialog { text-align: center; background: #090909; width: auto; padding: 18px; }
 .portrait-dialog > .close { position: absolute; top: 25px; right: 25px; background: #090909d9; }
-.portrait-dialog .monogram-xl {
-  display: grid;
-  place-items: center;
-  width: min(70vw, 520px);
-  aspect-ratio: 1;
-  margin: auto;
-  border: 1px solid #c5a34e3d;
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 18vw, 13rem);
-  color: var(--gold);
-  line-height: 1;
-}
+.portrait-dialog img { object-fit: contain; width: auto; height: min(75dvh, 850px); }
 .portrait-dialog p { font-family: var(--font-display); margin: 15px 0 0; font-size: 1.5rem; }
 
 /* --- Motion --------------------------------------------------------------- */
@@ -789,7 +774,7 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
 @media (width >= 1600px) {
   .hero { padding-top: 95px; }
   .portrait-frame { max-height: 650px; }
-  .portrait-frame > img, .portrait-frame.is-monogram { height: 650px; }
+  .portrait-frame > img { height: 650px; }
   .hero-copy { padding-top: 35px; }
 }
 
@@ -801,7 +786,7 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
   .hero .eyebrow { font-size: 0.53rem; }
   .hero-statement { font-size: 1.7rem; }
   .hero-description { font-size: 0.78rem; }
-  .portrait-frame > img, .portrait-frame.is-monogram { height: 530px; }
+  .portrait-frame > img { height: 530px; }
   .hero-actions { gap: 15px; }
   .hero-actions .button { gap: 15px; padding: 15px; font-size: 0.6rem; }
   .support-actions { gap: 16px; }
@@ -834,8 +819,7 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
   .support-actions a { font-size: 0.57rem; }
   .hero-portrait { width: 100%; padding-bottom: 26px; }
   .portrait-frame { max-height: 430px; }
-  .portrait-frame > img { height: 430px; object-position: 50% 33%; }
-  .portrait-frame.is-monogram { height: 430px; }
+  .portrait-frame > img { height: 430px; object-position: 52% 20%; }
   .portrait-caption { padding: 60px 20px 20px; }
   .hero-portrait figcaption { font-size: 0.5rem; }
   .hero-scroll { width: 100%; padding: 16px 0; }
@@ -910,6 +894,10 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
   .briefing-controls > span { font-size: 0.55rem; }
   .chapter .actions { gap: 15px; }
 
+  .booking-dialog { padding: 14px; }
+  .booking-dialog iframe { height: 74dvh; margin-top: 12px; }
+  .booking-note { font-size: 0.56rem; }
+  .portrait-dialog img { height: auto; max-height: 72dvh; }
   .system-flow { gap: 7px; font-size: 0.62rem; }
   .system-flow span:not(:last-child)::after { margin-left: 6px; }
 }

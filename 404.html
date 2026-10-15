@@ -15,7 +15,7 @@
 <body id="top">
 <header class="site-header">
   <a class="wordmark" href="/" aria-label="TB: Tyler Barton home">TB<span>Tyler Barton</span></a>
-  <a class="header-contact" href="/contact/">Let&rsquo;s connect <span aria-hidden="true">&#8599;</span></a>
+  <button class="header-contact" data-open="booking">Let&rsquo;s Chat <span aria-hidden="true">&#8599;</span></button>
 </header>
 <main id="main">
   <section class="section page-intro">
@@ -33,5 +33,16 @@
   <p>Pray. Work. Convert.</p>
   <small>&copy; 2026 Tyler Barton</small>
 </footer>
+<dialog id="booking" class="booking-dialog" aria-label="Book a call with Tyler Barton">
+  <div class="dialog-top">
+    <span class="eyebrow">Book a time</span>
+    <button class="close" data-close aria-label="Close booking">&times;</button>
+  </div>
+  <!-- src is set on first open so the third-party widget never loads on a plain page view -->
+  <iframe data-src="https://link.bemonastic.com/widget/booking/9uI12Z1BLdLVmq4bh6Eg" title="Booking calendar for Tyler Barton" loading="lazy"></iframe>
+  <p class="booking-note">Scheduling is handled by LeadConnector. Opening this connects to the booking service.</p>
+</dialog>
+
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

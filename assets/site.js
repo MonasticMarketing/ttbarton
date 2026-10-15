@@ -26,6 +26,11 @@
       lastTrigger = trigger;
       dialog.showModal();
       document.body.classList.add("dialog-open");
+      /* Third-party embeds only load once the dialog is actually opened */
+      var lazyFrame = dialog.querySelector("iframe[data-src]");
+      if (lazyFrame && !lazyFrame.getAttribute("src")) {
+        lazyFrame.setAttribute("src", lazyFrame.dataset.src);
+      }
       if (dialog.id === "overview") {
         chapterIndex = 0;
         renderChapter();

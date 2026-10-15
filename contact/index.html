@@ -12,6 +12,13 @@
 <meta property="og:description" content="For consulting engagements, growth advisory, partnerships and strategic conversations.">
 <meta property="og:url" content="https://ttbarton.com/contact/">
 <meta property="og:site_name" content="Tyler Barton">
+<meta property="og:image" content="https://ttbarton.com/assets/social-profile.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Tyler Barton, founder of Monastic Marketing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ttbarton.com/assets/social-profile.jpg">
 <meta name="theme-color" content="#090909">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +36,7 @@
     <span>Menu</span>
   </button>
   <a class="wordmark" href="/" aria-label="TB: Tyler Barton home">TB<span>Tyler Barton</span></a>
-  <a class="header-contact" href="mailto:Tyler@ttbarton.com">Email direct <span aria-hidden="true">&#8599;</span></a>
+  <button class="header-contact" data-open="booking">Let&rsquo;s Chat <span aria-hidden="true">&#8599;</span></button>
 </header>
 
 <dialog id="navigation" class="nav-dialog" aria-labelledby="nav-title">
@@ -59,7 +66,7 @@
 
   <section class="section page-intro">
     <div class="section-kicker">
-      <span>Let&rsquo;s connect</span>
+      <span>Let&rsquo;s Chat</span>
       <span>A clear next step</span>
     </div>
     <h1>A conversation.<br>A clear next step.</h1>
@@ -98,26 +105,21 @@
     </div>
   </section>
 
-  <!--
-    TODO(content): booking calendar. When a scheduling link is ready, restore this section and
-    point data-src at the embed URL (kept behind a click so nothing loads until asked).
-
-    <section class="section booking-section">
-      <div class="section-kicker"><span>Schedule a strategy session</span><span>Pick a time</span></div>
-      <h2 data-reveal>Make time for<br>what comes next.</h2>
-      <p>Choose an available time using the booking calendar.</p>
-      <div class="calendar-shell">
-        <iframe id="booking-calendar" data-src="BOOKING_EMBED_URL" title="Booking calendar" hidden></iframe>
-        <button id="load-calendar" class="button outline">Load booking calendar <span aria-hidden="true">&#8599;</span></button>
-        <p id="calendar-note">Loading the calendar connects to the booking service.</p>
-      </div>
-    </section>
-  -->
+  <section class="section booking-section">
+    <div class="section-kicker"><span>Schedule a strategy session</span><span>Pick a time</span></div>
+    <h2 data-reveal>Make time for<br>what comes next.</h2>
+    <p>Choose an available time using the booking calendar, or <a class="text-link" href="mailto:Tyler@ttbarton.com">send an email</a> instead.</p>
+    <div class="calendar-shell">
+      <iframe id="booking-calendar" data-src="https://link.bemonastic.com/widget/booking/9uI12Z1BLdLVmq4bh6Eg" title="Booking calendar for Tyler Barton" hidden></iframe>
+      <button id="load-calendar" class="button outline">Load booking calendar <span aria-hidden="true">&#8599;</span></button>
+      <p id="calendar-note">Scheduling is handled by LeadConnector. Loading the calendar connects to the booking service.</p>
+    </div>
+  </section>
 
   <section class="contact-section section">
     <div class="section-kicker">
       <span>Strategic conversations</span>
-      <span>Let&rsquo;s connect</span>
+      <span>Let&rsquo;s Chat</span>
     </div>
     <div class="contact-layout">
       <h2>Let&rsquo;s build<br>what&rsquo;s next.</h2>
@@ -141,6 +143,16 @@
   <a href="#top">Back to top &uarr;</a>
   <small>&copy; 2026 Tyler Barton</small>
 </footer>
+
+<dialog id="booking" class="booking-dialog" aria-label="Book a call with Tyler Barton">
+  <div class="dialog-top">
+    <span class="eyebrow">Book a time</span>
+    <button class="close" data-close aria-label="Close booking">&times;</button>
+  </div>
+  <!-- src is set on first open so the third-party widget never loads on a plain page view -->
+  <iframe data-src="https://link.bemonastic.com/widget/booking/9uI12Z1BLdLVmq4bh6Eg" title="Booking calendar for Tyler Barton" loading="lazy"></iframe>
+  <p class="booking-note">Scheduling is handled by LeadConnector. Opening this connects to the booking service.</p>
+</dialog>
 
 <script src="/assets/site.js" defer></script>
 </body>

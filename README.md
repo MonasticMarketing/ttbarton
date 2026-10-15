@@ -14,7 +14,9 @@ consulting/index.html   Value proposition, capabilities, methodology, tools, eng
 contact/index.html      Contact routes + what to expect
 404.html                Not-found page
 assets/styles.css       Whole design system (one stylesheet)
-assets/site.js          Nav drawer, briefing modal, scroll progress, reveal animations
+assets/site.js          Nav drawer, booking + briefing modals, scroll progress, reveals
+assets/portrait.webp    Hero portrait (+ portrait-small.webp for narrow viewports)
+assets/social-profile.jpg  1200x630 og:image card
 favicon.svg             TB monogram
 wrangler.jsonc          Worker + static-assets configuration (committed, not generated)
 .assetsignore           Keeps .git, docs and config out of the published assets
