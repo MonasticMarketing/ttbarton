@@ -2,6 +2,11 @@
 # (www -> apex) is rejected with error 100324 and fails the whole deploy, so
 # that redirect is configured as a zone-level Redirect Rule instead. See README.
 
+# Retired page -> the closing section on the homepage, which carries the same
+# email plus the booking modal
+/contact    /#contact      301
+/contact/   /#contact      301
+
 # Friendly aliases
 /about      /experience/   301
 /services   /consulting/   301

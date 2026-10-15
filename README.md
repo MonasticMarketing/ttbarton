@@ -11,17 +11,17 @@ Cloudflare Worker with static assets, serving the repository root directly.
 index.html              Home — hero, metrics, profile, ventures, systems, principles, contact
 experience/index.html   Experience timeline + operating principles
 consulting/index.html   Value proposition, capabilities, methodology, tools, engagements
-contact/index.html      Contact routes + what to expect
 404.html                Not-found page
 assets/styles.css       Whole design system (one stylesheet)
 assets/site.js          Nav drawer, booking + briefing modals, scroll progress, reveals
+                        (every CTA opens the booking modal; there is no contact page)
 assets/portrait.webp    Hero portrait (+ portrait-small.webp for narrow viewports)
 assets/social-profile.jpg  1200x630 og:image card
 favicon.svg             TB monogram
 wrangler.jsonc          Worker + static-assets configuration (committed, not generated)
 .assetsignore           Keeps .git, docs and config out of the published assets
 _headers                Response headers (security + caching)
-_redirects              Friendly path aliases (relative URLs only)
+_redirects              Retired /contact/ -> /#contact, plus path aliases
 robots.txt, sitemap.xml
 ```
 
@@ -128,7 +128,7 @@ CLOUDFLARE_API_TOKEN=... npx wrangler deploy
 ## Content maintenance
 
 Copy lives directly in the HTML — there is no CMS. Repeated chrome (header, nav
-dialog, footer) is duplicated across the four pages, so a nav or footer change needs
+dialog, footer) is duplicated across the three content pages, so a nav or footer change needs
 the same edit in each file.
 
 Outstanding content and asset gaps are tracked in [`CONTENT-TODO.md`](CONTENT-TODO.md).

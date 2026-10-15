@@ -116,6 +116,7 @@ main { animation: page-enter 0.4s var(--ease); }
 }
 .text-link:hover,
 .support-actions a:hover { color: var(--gold); border-color: var(--gold); }
+button.text-link { text-align: left; }
 
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; }
 
@@ -630,33 +631,6 @@ details[open] > summary > .expand { transform: rotate(45deg); }
   font-size: 0.62rem;
 }
 
-/* --- Contact page --------------------------------------------------------- */
-
-.contact-options { display: flex; flex-direction: column; max-width: 800px; margin-top: 55px; }
-.contact-options > a {
-  display: grid;
-  grid-template-columns: 130px 1fr 20px;
-  align-items: center;
-  gap: 25px;
-  padding: 28px 0;
-  border-top: 1px solid var(--line);
-}
-.contact-options > a > span:first-child { color: var(--muted); font-size: 0.7rem; }
-.contact-options strong { font-family: var(--font-display); font-size: 2rem; font-weight: 400; }
-.contact-options > a > span:last-child { color: var(--gold); }
-
-.calendar-shell {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 230px;
-  padding: 25px;
-  border: 1px solid var(--line);
-}
-.calendar-shell > p { margin: 20px 0 0; font-size: 0.7rem; }
-.booking-section h2 { margin-bottom: 25px; }
-
 /* --- Dialogs -------------------------------------------------------------- */
 
 dialog {
@@ -877,10 +851,6 @@ dialog[open] { animation: dialog-in 0.3s var(--ease); }
   .engagement h3 { font-size: 1.65rem; }
   .engagement summary p { font-size: 0.75rem; }
 
-  .contact-options > a { grid-template-columns: 1fr 20px; gap: 12px; }
-  .contact-options > a > span:first-child { grid-column: 1 / -1; }
-  .contact-options strong { font-size: clamp(1.2rem, 5.2vw, 1.8rem); }
-  .calendar-shell { padding: 12px; }
 
   .overview-dialog { max-height: 92dvh; padding: 22px; }
   .dialog-top .eyebrow { max-width: 190px; font-size: 0.55rem; }

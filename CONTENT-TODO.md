@@ -30,7 +30,7 @@ now differs from this site.
 
 | Item | Where | Notes |
 | --- | --- | --- |
-| Direct phone number | all pages, `TODO(content)` | Contact page has a ready-to-uncomment `<a href="tel:...">` block. The agency line is (435) 900-8383 — confirm whether that belongs here. |
+| Direct phone number | all pages, `TODO(content)` | Each `.contact-links` block has a commented `<a href="tel:...">` ready to uncomment. The agency line is (435) 900-8383 — confirm whether that belongs here. |
 | Earlier roles / companies | `experience/index.html`, `TODO(content)` | Timeline holds Monastic Marketing, Soulegria, GSD CRM and three practice areas. Add more `<details class="timeline-item">` blocks on the same pattern. |
 | Education | `experience/index.html`, commented block | A complete `<section>` is commented out, ready for institution and field of study. |
 | Focus industries | `consulting/index.html`, `TODO(content)` | Behavioral health is grounded in the Soulegria role. The rest describe company stage and shape rather than claiming industry specialisms. |
@@ -41,10 +41,13 @@ now differs from this site.
 - **Portrait** — `assets/portrait.webp` (1254×1254) with a 420w variant for small
   screens, used in the hero and the lightbox.
 - **Social share card** — `assets/social-profile.jpg` (1200×630), generated from the
-  portrait in the site's own typefaces. Wired to `og:image` on all four pages.
-- **Booking** — the "Let's Chat" header button opens a modal with the LeadConnector
-  calendar; `/contact/` also has a click-to-load inline calendar. The iframe `src` is
-  only set when opened, so nothing third-party loads on a plain page view.
+  portrait in the site's own typefaces. Wired to `og:image` on every page.
+- **Booking** — there is no contact page. Every call to action on the site opens one
+  modal holding the LeadConnector calendar: the "Let's Chat" header button, the primary
+  gold buttons, and the "Discuss this capability" / "Start a conversation" links on the
+  consulting page. The iframe `src` is only set when the modal is first opened, so
+  nothing third-party loads on a plain page view. `/contact/` 301s to `/#contact`, the
+  closing section that still carries the email address.
 
 ## To verify before wide promotion
 

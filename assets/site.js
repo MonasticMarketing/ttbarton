@@ -16,13 +16,18 @@
   function closeDialog(dialog) {
     dialog.close();
     document.body.classList.remove("dialog-open");
-    if (lastTrigger) lastTrigger.focus();
+    if (lastTrigger && lastTrigger.isConnected && lastTrigger.getClientRects().length) {
+      lastTrigger.focus();
+    }
   }
 
   document.querySelectorAll("[data-open]").forEach(function (trigger) {
     trigger.addEventListener("click", function () {
       var dialog = document.getElementById(trigger.dataset.open);
       if (!dialog) return;
+      /* A trigger inside another dialog (nav drawer, briefing) swaps to the new one */
+      var parentDialog = trigger.closest("dialog");
+      if (parentDialog && parentDialog.open) parentDialog.close();
       lastTrigger = trigger;
       dialog.showModal();
       document.body.classList.add("dialog-open");
@@ -155,19 +160,6 @@
     }
     if (header) header.classList.toggle("scrolled", scrollY > 30);
     ticking = false;
-  }
-
-  /* --- Deferred booking calendar (contact page) --------------------------- */
-  var loadCalendar = document.getElementById("load-calendar");
-  if (loadCalendar) {
-    loadCalendar.addEventListener("click", function (event) {
-      var frame = document.getElementById("booking-calendar");
-      frame.src = frame.dataset.src;
-      frame.hidden = false;
-      event.currentTarget.hidden = true;
-      var note = document.getElementById("calendar-note");
-      if (note) note.hidden = true;
-    });
   }
 
   addEventListener(
