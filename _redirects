@@ -1,5 +1,6 @@
-# Canonical host: apex. Redirect www to apex.
-https://www.ttbarton.com/*  https://ttbarton.com/:splat  301!
+# Workers static assets only accepts RELATIVE URLs here. A cross-host rule
+# (www -> apex) is rejected with error 100324 and fails the whole deploy, so
+# that redirect is configured as a zone-level Redirect Rule instead. See README.
 
 # Friendly aliases
 /about      /experience/   301

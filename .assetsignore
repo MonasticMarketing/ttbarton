@@ -1,0 +1,14 @@
+# Workers static assets uploads everything in the asset directory, including
+# dotfiles. Cloudflare Pages excluded these automatically; Workers does not.
+# Without this file the whole .git directory is published and served.
+**/.git
+**/.gitignore
+**/.gitattributes
+**/.github
+**/.DS_Store
+**/.wrangler
+**/node_modules
+
+# Repo documentation and build config should not be served from the site root
+*.md
+wrangler.jsonc
