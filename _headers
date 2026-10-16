@@ -5,7 +5,7 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=15768000
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://link.bemonastic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://link.bemonastic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
 
 # HSTS above is six months, deliberately WITHOUT includeSubDomains: links.ttbarton.com
 # is a CNAME to a third party whose HTTPS this repo cannot vouch for, and the directive
@@ -17,6 +17,13 @@
 # in styles.css, and all JS is in external files. Keep it that way - adding an inline
 # <script>, a style attribute, or a new third-party embed means updating this policy.
 # frame-src allows exactly the booking widget's origin.
+#
+# script-src and connect-src also allow static.cloudflareinsights.com and
+# cloudflareinsights.com. That is Cloudflare Web Analytics, which the edge injects into
+# HTML responses automatically when it is enabled on the zone - it is not in this repo,
+# so it does not appear in local testing and was only caught in production. Without the
+# exception the beacon is blocked and traffic data silently stops. Remove both entries
+# if Web Analytics is ever turned off.
 
 # These filenames are NOT content-hashed, so they must never be marked immutable.
 # A browser told "immutable" will not re-request the file for a year, while the HTML
