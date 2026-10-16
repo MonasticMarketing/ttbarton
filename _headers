@@ -3,6 +3,20 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=15768000
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://link.bemonastic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# HSTS above is six months, deliberately WITHOUT includeSubDomains: links.ttbarton.com
+# is a CNAME to a third party whose HTTPS this repo cannot vouch for, and the directive
+# would force HTTPS on it too. It also omits preload, which is the part that is
+# effectively irreversible.
+#
+# The CSP forbids inline script AND inline style. Nothing in this site needs either:
+# the stagger delays that used to live in style="--i:0" attributes are nth-child rules
+# in styles.css, and all JS is in external files. Keep it that way - adding an inline
+# <script>, a style attribute, or a new third-party embed means updating this policy.
+# frame-src allows exactly the booking widget's origin.
 
 # These filenames are NOT content-hashed, so they must never be marked immutable.
 # A browser told "immutable" will not re-request the file for a year, while the HTML
@@ -13,6 +27,9 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /assets/site.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/loader.js
   Cache-Control: public, max-age=0, must-revalidate
 
 # Images are large and change rarely, so they get a real cache - but a bounded one,

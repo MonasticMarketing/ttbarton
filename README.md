@@ -15,12 +15,13 @@ consulting/index.html   Value proposition, capabilities, methodology, tools, eng
 assets/styles.css       Whole design system (one stylesheet)
 assets/site.js          Nav drawer, booking + briefing modals, scroll progress, reveals
                         (every CTA opens the booking modal; there is no contact page)
+assets/loader.js        Homepage introduction overlay (~3.6s, skippable)
 assets/portrait.webp    Hero portrait (+ portrait-small.webp for narrow viewports)
 assets/social-profile.jpg  1200x630 og:image card
 favicon.svg             TB monogram
 wrangler.jsonc          Worker + static-assets configuration (committed, not generated)
 .assetsignore           Keeps .git, docs and config out of the published assets
-_headers                Response headers (security + caching)
+_headers                Security headers, CSP, HSTS and caching
 _redirects              Retired /contact/ -> /#contact, plus path aliases
 robots.txt, sitemap.xml
 ```
@@ -123,6 +124,43 @@ Requires a token with **Workers Scripts: Edit** on the account:
 
 ```bash
 CLOUDFLARE_API_TOKEN=... npx wrangler deploy
+```
+
+## Security
+
+Response headers are set in `_headers`:
+
+- **HSTS** at six months, deliberately **without** `includeSubDomains` —
+  `links.ttbarton.com` is a CNAME to a third party whose HTTPS this repo cannot vouch
+  for — and without `preload`, which is the effectively irreversible part.
+- **CSP** forbidding inline script *and* inline style. Nothing here needs either: all
+  JS is in external files, and the stagger delays that used to live in
+  `style="--i:0"` attributes are `nth-child` rules in `styles.css`. `frame-src` allows
+  exactly the booking widget's origin. **Adding an inline `<script>`, a `style`
+  attribute, or any new third-party embed means updating the policy**, or it will be
+  blocked silently in production.
+- `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`,
+  `Cross-Origin-Opener-Policy`, `Permissions-Policy`.
+
+Zone-level settings (Cloudflare dashboard → SSL/TLS), not in this repo:
+
+| Setting | Value |
+| --- | --- |
+| Always Use HTTPS | on — plain HTTP 301s to HTTPS |
+| Minimum TLS version | 1.2 |
+| TLS 1.3 | on |
+| SSL mode | Full |
+
+SSL mode is **Full**, not Full (Strict). The site is served by a Worker with no origin
+server, so Cloudflare terminates and serves directly and the distinction has little
+practical effect here — but `links.ttbarton.com` points at a third party, so changing
+it is worth checking against that host first.
+
+Verify the headers after a deploy:
+
+```bash
+curl -sSI https://ttbarton.com/ | grep -iE 'strict-transport|content-security'
+curl -sSI http://ttbarton.com/  | head -1   # expect 301
 ```
 
 ## Content maintenance
